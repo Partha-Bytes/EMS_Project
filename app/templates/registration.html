@@ -1,0 +1,92 @@
+{% include "header.html" %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.forms['signup'];
+        const passwordField = form['pwd'];
+        const confirmPasswordField = form['cpwd'];
+
+        form.addEventListener('submit', function (event) {
+            if (passwordField.value !== confirmPasswordField.value) {
+                alert('Passwords do not match');
+                confirmPasswordField.focus();
+                event.preventDefault();
+            }
+        });
+    });
+</script>
+
+<div class="card shadow m-5">  
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom : 2px solid yellow">Create An Account</h5>
+
+        <div class="container-fluid">
+            <form method="post" name="signup">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="Firstname" class="form-control" placeholder="Enter Your First Name" pattern="[A-Za-z]+" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="Lastname" class="form-control" placeholder="Enter Your Last Name" pattern="[A-Za-z]+" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Employee ID</label>
+                            <input type="text" name="empid" class="form-control" placeholder="Enter Your Employee ID" pattern="[0-9]+" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Email ID</label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="pwd" class="form-control" placeholder="Enter Your Password" required> 
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" name="cpwd" class="form-control" placeholder="Enter Your Password Again" required> 
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div style="text-align: center;">
+                    <input type="submit" value="Submit" class="m-2 px-3 btn btn-primary">
+                </div>
+            </form>    
+        </div>    
+    </div> 
+</div>
+
+{% if error == "No" %}
+<script>
+    alert('Signup Successful');
+    window.location = ('{% url "emp_login" %}');
+</script>
+{% endif %}
+
+{% if error == "Yes" %}
+<script>
+    alert('Something went wrong, Try Again');
+</script>
+{% endif %}

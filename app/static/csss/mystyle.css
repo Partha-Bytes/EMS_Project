@@ -1,0 +1,19 @@
+
+.nav-link {
+    color: whitesmoke !important;
+}
+
+.nav-link:hover{
+    color: yellow !important;
+    background-color: blueviolet;
+    border-radius: 15px;
+}
+
+.navbar-brand{
+    font-weight: bold;
+}
+
+.active{
+    background-color: green;
+    border-radius: 10px;
+}

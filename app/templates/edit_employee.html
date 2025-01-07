@@ -1,0 +1,31 @@
+{% extends "admin_base.html" %}
+
+{% block main %}
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h5 class="text-primary">Edit Employee</h5>
+        <form method="post">
+            {% csrf_token %}
+            <label>Emp ID</label>
+            <input type="text" name="empid" value="{{ employee.empid }}" class="form-control">
+            
+            <label>Department</label>
+            <input type="text" name="empdept" value="{{ employee.empdept }}" class="form-control">
+            
+            <label>Designation</label>
+            <input type="text" name="designation" value="{{ employee.designation }}" class="form-control">
+            
+            <label>Contact</label>
+            <input type="text" name="contact" value="{{ employee.contact }}" class="form-control">
+            
+            <label>Gender</label>
+            <input type="text" name="gender" value="{{ employee.gender }}" class="form-control">
+            
+            <label>Joining Date</label>
+            <input type="date" name="joiningdate" value="{{ employee.joiningdate }}" class="form-control">
+            
+            <button type="submit" class="btn btn-success mt-3">Save Changes</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

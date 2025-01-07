@@ -1,0 +1,40 @@
+{% load static %}
+{% include 'header.html' %}
+
+<!-- Carousel -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators/dots -->
+    <ul class="carosel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+    </ul>
+    
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/rb_144094.png' %}" alt="Employee management System" class="d-block" style="width:100%" height="500">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/rb_43284.png' %}" alt="Chicago" class="d-block" style="width:100%" height="500">
+      </div>
+    </div>
+    
+    <!-- Left and right controls/icons -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+  
+
+<!--Footer-->
+<div class="container-fluid bg-dark d-flex flex-column justify-content-center align-items-center" style="height:150px">
+    <h4 class="text-center text-light">Employee Management System</h4>
+    <p class="text-center text-primary">&copy; Partha Sarathi Das</p>
+</div>
+
+
+<!--Footer End-->
